@@ -6,13 +6,10 @@ st.title('Capstone Project-Pneumonia Detection')
 
 image = st.file_uploader('Upload your xray scan here')
 
-import zipfile
-with zipfile.ZipFile('best_model.zip', 'r') as zip_ref:
-    zip_ref.extractall()
-import os
-st.text(os.listdir('best_model/'))
+
+
 from tensorflow.keras.models import load_model
-pred_model=load_model('best_model')
+pred_model=load_model('best_model.h5')
 import requests, io
 url = image
 response = requests.get(url)
