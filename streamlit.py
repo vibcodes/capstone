@@ -9,7 +9,8 @@ image = st.file_uploader('Upload your xray scan here')
 import zipfile
 with zipfile.ZipFile('best_model.zip', 'r') as zip_ref:
     zip_ref.extractall()
-    
+import os
+print(os.listdir())
 from tensorflow.keras.models import load_model
 pred_model=load_model('best_model')
 import requests, io
