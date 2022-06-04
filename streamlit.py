@@ -10,7 +10,7 @@ import zipfile
 with zipfile.ZipFile('best_model.zip', 'r') as zip_ref:
     zip_ref.extractall()
 import os
-st.text(os.listdir())
+st.text(os.listdir('best_model/'))
 from tensorflow.keras.models import load_model
 pred_model=load_model('best_model')
 import requests, io
