@@ -6,10 +6,14 @@ st.title('Capstone Project-Pneumonia Detection')
 
 image = st.file_uploader('Upload your xray scan here')
 
+import zipfile
+with zipfile.ZipFile('best_model', 'r') as zip_ref:
+    zip_ref.extractall()
+    
 from tensorflow.keras.models import load_model
 pred_model=load_model('best_model')
 import requests, io
-url = 'https://prod-images-static.radiopaedia.org/images/25074603/4994014ef5c834e4803541aa1dc874_jumbo.jpeg'
+url = image
 response = requests.get(url)
 img = Image.open(io.BytesIO(response.content))
 imgplot = plt.imshow(img)
