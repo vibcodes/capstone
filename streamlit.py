@@ -7,7 +7,7 @@ st.title('Capstone Project-Pneumonia Detection')
 image = st.file_uploader('Upload your xray scan here')
 
 import zipfile
-with zipfile.ZipFile('best_model', 'r') as zip_ref:
+with zipfile.ZipFile('best_model.zip', 'r') as zip_ref:
     zip_ref.extractall()
     
 from tensorflow.keras.models import load_model
