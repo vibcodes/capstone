@@ -4,7 +4,7 @@ import streamlit as st
 st.title('Capstone Project-Pneumonia Detection')
 
 
-image = st.file_uploader('Upload your xray scan here', type=None, accept_multiple_files=False, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False)
+image = st.file_uploader('Upload your xray scan here')
 
 from tensorflow.keras.models import load_model
 pred_model=load_model('best_model')
